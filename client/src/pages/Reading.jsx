@@ -185,7 +185,7 @@ export default function Reading() {
     try {
       const token = localStorage.getItem('token')
       await axios.patch(
-        `http://localhost:8000/api/books/progress/${book._id}`,
+        `https://brewreads-api.onrender.com/api/books/progress/${book._id}`,
         { progress: val },
         { headers: { Authorization: `Bearer ${token}` } }
       )

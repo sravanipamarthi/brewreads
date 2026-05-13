@@ -36,7 +36,7 @@ const ShelfCard = ({ book, theme, onProgressUpdate, onRemove }) => {
     try {
       const token = localStorage.getItem('token')
       await axios.patch(
-        `http://localhost:8000/api/books/progress/${book._id}`,
+        `https://brewreads-api.onrender.com/api/books/progress/${book._id}`,
         { progress: val },
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -50,7 +50,7 @@ const ShelfCard = ({ book, theme, onProgressUpdate, onRemove }) => {
     try {
       const token = localStorage.getItem('token')
       await axios.delete(
-        `http://localhost:8000/api/books/shelf/${book._id}`,
+        `https://brewreads-api.onrender.com/api/books/shelf/${book._id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       )
       onRemove(book._id)
@@ -179,7 +179,7 @@ export default function Shelf() {
   const fetchShelf = async () => {
     try {
       const token = localStorage.getItem('token')
-      const res = await axios.get('http://localhost:8000/api/books/shelf', {
+      const res = await axios.get('https://brewreads-api.onrender.com/api/books/shelf', {
         headers: { Authorization: `Bearer ${token}` },
       })
       setReadings(res.data.readings || [])

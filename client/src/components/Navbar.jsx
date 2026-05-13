@@ -57,7 +57,7 @@ const ProfileDrawer = ({ open, onClose, theme }) => {
   const fetchStats = async () => {
     try {
       const token = localStorage.getItem('token')
-      const res = await axios.get('http://localhost:8000/api/books/shelf', {
+      const res = await axios.get('https://brewreads-api.onrender.com/api/books/shelf', {
         headers: { Authorization: `Bearer ${token}` }
       })
       const readings = res.data.readings || []
@@ -87,7 +87,7 @@ const ProfileDrawer = ({ open, onClose, theme }) => {
     setPwLoading(true); setPwMsg('')
     try {
       const token = localStorage.getItem('token')
-      await axios.patch('http://localhost:8000/api/auth/change-password',
+      await axios.patch('https://brewreads-api.onrender.com/api/auth/change-password',
         { currentPassword: pwForm.current, newPassword: pwForm.newPw },
         { headers: { Authorization: `Bearer ${token}` } }
       )

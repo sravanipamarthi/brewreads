@@ -149,7 +149,7 @@ export default function Signup() {
     if (form.password.length < 6) { setError('Password must be at least 6 characters'); return }
     setLoading(true); setError('')
     try {
-      const res = await axios.post('http://localhost:8000/api/auth/signup', form)
+      const res = await axios.post('https://brewreads-api.onrender.com/api/auth/signup', form)
       loginUser(res.data.user, res.data.token)
       const pendingMood = sessionStorage.getItem('brewreads_pending_mood')
       navigate(pendingMood ? '/mood-entry' : '/mood')

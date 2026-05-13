@@ -170,7 +170,7 @@ export default function Login() {
   const submit = async (e) => {
     e.preventDefault(); setLoading(true); setError('')
     try {
-      const res = await axios.post('http://localhost:8000/api/auth/login', form)
+      const res = await axios.post('https://brewreads-api.onrender.com/api/auth/login', form)
       loginUser(res.data.user, res.data.token)
       const pendingMood = sessionStorage.getItem('brewreads_pending_mood')
       navigate(pendingMood ? '/mood-entry' : '/mood')

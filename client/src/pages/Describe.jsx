@@ -207,7 +207,7 @@ export default function Describe() {
     try {
       const token = localStorage.getItem('token')
       const res = await axios.post(
-        'http://localhost:8000/api/books/recommend',
+        'https://brewreads-api.onrender.com/api/books/recommend',
         { mood, description: text },
         { headers: { Authorization: `Bearer ${token}` } }
       )
